@@ -1,0 +1,22 @@
+CREATE TABLE produto(
+	id SERIAL NOT NULL,
+	nome VARCHAR(255) NOT NULL,
+	departamento VARCHAR(255) NOT NULL,
+	codbar VARCHAR(255) NOT NULL,
+	CONSTRAINT pk_produto PRIMARY KEY(id)
+);
+
+INSERT INTO produto (nome,departamento,codbar)
+VALUES
+	('Água','Alimentos','100001'),
+	('Cerveja','bebidas','200002'),
+	('Vodka','bebidas','300003'),
+	('Pão','fermentados','400004'),
+	('Iogurte','fermentados','500005'),
+	('Leite','laticinios','600006'),
+	('Manteiga','laticinios','700007'),
+	('Arroz','alimentos','800008'),
+	('Feijão','alimentos','900009'),
+	('Carne','açougue','100011');
+
+
