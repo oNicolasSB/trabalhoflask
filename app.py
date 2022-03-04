@@ -8,11 +8,11 @@ app = Flask(__name__)
 
 dao = ProdutoDao(Database(Config().config).conn)
 
-@app.route('/produto/novo', methods=["GET", "POST"])
+@app.route('/produto/novo', methods=["GET"])
 def novo():
     return render_template("inserir.html")
 
-@app.route('/produto', methods=["POST"])
+@app.route('/produto/novo', methods=["POST"])
 def inserir():
     produto = Produto()
     produto.id = request.form.get("id")
@@ -49,7 +49,7 @@ def editar():
     produto.departamento = request.form.get("departamento")
     produto.codbar = request.form.get("codbar")
     produto = dao.alterarProduto(produto)
-    
+
     lista = dao.selecionarProdutos()
     return render_template(
         "listagem.html",

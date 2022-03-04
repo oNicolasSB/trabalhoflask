@@ -44,9 +44,8 @@ class ProdutoDao:
         c = self.connection.cursor()
         c.execute("""
             insert into produto(id, nome, departamento, codbar)
-            values({}, '{}', '{}', '{}')
+            values('{}', '{}', '{}', '{}') RETURNING id
         """.format(produto.id, produto.nome, produto.departamento, produto.codbar))
-
         self.connection.commit()
 
     def alterarProduto(self, produto: Produto) -> Produto:
